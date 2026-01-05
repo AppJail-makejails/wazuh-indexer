@@ -28,6 +28,7 @@ options:
   - template: 'template.conf'
 services:
   wazuh-indexer:
+    makejail: gh+AppJail-makejails/wazuh-indexer
     volumes:
       - opensearch-certs: /usr/local/etc/opensearch/certs
       - opensearch-data: /var/db/opensearch
