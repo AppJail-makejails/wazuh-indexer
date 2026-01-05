@@ -108,3 +108,18 @@ The following ports are used by the wazuh indexer and can be exposed using the `
 | --------- | ---------------------------------------------------- |
 | 5044/TCP  | Logstash port to which Filebeat will connect.        |
 | 9200/TCP  | OpenSearch port to which Wazuh Manager will connect. |
+
+## Notes
+
+1. Permissions used by TLS certificates and keys:
+
+    ```console
+    # ls -ld /var/appjail-volumes/wazuh-indexer/opensearch-certs
+    drwxr-xr-x  2 root 855 7 31 dic.  01:47 /var/appjail-volumes/wazuh-indexer/opensearch-certs
+    # ls -ld /var/appjail-volumes/wazuh-indexer/opensearch-certs/*
+    -r--------  1 855 855 1704 28 dic.  14:10 /var/appjail-volumes/wazuh-indexer/opensearch-certs/admin-key.pem
+    -r--------  1 855 855 1220 28 dic.  14:10 /var/appjail-volumes/wazuh-indexer/opensearch-certs/admin.pem
+    -r--------  1 855 855 1708 28 dic.  14:10 /var/appjail-volumes/wazuh-indexer/opensearch-certs/node-1-key.pem
+    -r--------  1 855 855 1277 28 dic.  14:10 /var/appjail-volumes/wazuh-indexer/opensearch-certs/node-1.pem
+    -r--------  1 855 855 1204 28 dic.  14:10 /var/appjail-volumes/wazuh-indexer/opensearch-certs/root-ca.pem
+    ```
