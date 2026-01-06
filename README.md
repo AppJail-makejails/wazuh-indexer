@@ -32,7 +32,6 @@ services:
     volumes:
       - opensearch-certs: /usr/local/etc/opensearch/certs
       - opensearch-data: /var/db/opensearch
-      - beats-data: /var/db/beats
       - wazuh-indexer-pkgcache: /var/cache/pkg
     arguments:
       - wazuh_indexer_addr: '10.0.0.81'
@@ -46,11 +45,6 @@ volumes:
     device: /var/appjail-volumes/wazuh-indexer/opensearch-data
     owner: 855
     group: 855
-    mode: 0755
-  beats-data:
-    device: /var/appjail-volumes/wazuh-indexer/beats-data
-    owner: 0
-    group: 0
     mode: 0755
   wazuh-indexer-pkgcache:
     device: /var/appjail-volumes/wazuh-indexer/pkgcache
