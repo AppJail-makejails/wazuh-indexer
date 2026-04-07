@@ -22,7 +22,6 @@ DIRECTOR_PROJECT=wazuh-indexer
 options:
   - virtualnet: ':<random> address:10.0.0.81 default'
   - nat:
-  - osversion: '14.3-RELEASE'
   - copydir: 'user-files'
   - file: '/usr/local/etc/pkg/repos/Latest.conf'
   - template: 'template.conf'
@@ -47,7 +46,7 @@ volumes:
     group: 855
     mode: 0755
   wazuh-indexer-pkgcache:
-    device: /var/appjail-volumes/wazuh-indexer/pkgcache
+    device: /var/cache/wazuh-indexer/pkgcache
     type: nullfs
 ```
 
